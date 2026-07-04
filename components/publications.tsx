@@ -8,14 +8,14 @@ export function Publications() {
   const upcoming = publications.find((p) => p.upcoming);
 
   return (
-    <Section id="publications" eyebrow="Publications" title="Peer-reviewed research & writing.">
+    <Section id="publications" eyebrow="Publications" title="Peer-reviewed research & writing." tone="white">
       <Reveal stagger className="grid gap-4 lg:grid-cols-2">
         {/* Left column — published papers, stacked */}
         <div className="flex flex-col gap-4">
           {papers.map((pub) => (
             <RevealItem
               key={pub.title}
-              className="flex flex-col rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-ink/15"
+              className="flex flex-col rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-accent"
             >
               <div className="flex items-center justify-between gap-3">
                 <span className="font-mono text-xs uppercase tracking-[0.16em] text-accent">
@@ -32,7 +32,7 @@ export function Publications() {
                 href={pub.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-accent"
+                className="group mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-accent-strong"
               >
                 Read Paper
                 <ArrowUpRight
@@ -46,8 +46,8 @@ export function Publications() {
 
         {/* Right column — upcoming, visually distinct */}
         {upcoming ? (
-          <RevealItem className="flex h-full flex-col justify-center rounded-2xl border border-dashed border-accent/40 bg-accent/[0.03] p-8">
-            <span className="inline-flex w-fit items-center rounded-full bg-accent px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-bg">
+          <RevealItem className="flex h-full flex-col justify-center rounded-2xl border border-dashed border-accent/40 bg-blush/40 p-8">
+            <span className="inline-flex w-fit items-center rounded-full bg-accent px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-white">
               Upcoming
             </span>
             <h3 className="mt-5 text-xl font-semibold tracking-tight text-ink">{upcoming.title}</h3>

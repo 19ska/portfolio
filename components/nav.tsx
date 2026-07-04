@@ -27,9 +27,7 @@ export function Nav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "border-b border-line bg-bg/80 backdrop-blur-md"
-          : "border-b border-transparent"
+        scrolled ? "bg-surface shadow-nav" : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
@@ -38,19 +36,20 @@ export function Nav() {
           className="group inline-flex items-center gap-2"
           aria-label={`${identity.name} — back to top`}
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-ink font-mono text-sm font-semibold text-bg transition-colors group-hover:bg-accent">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent font-mono text-sm font-bold text-white shadow-[0_4px_12px_-4px_rgba(37,99,235,0.6)] transition-transform group-hover:-rotate-6">
             {identity.monogram}
           </span>
         </a>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full px-3.5 py-2 text-sm text-muted transition-colors hover:text-ink"
+              className="group relative px-2 py-2 text-sm font-medium text-muted transition-colors hover:text-ink"
             >
               {link.label}
+              <span className="absolute inset-x-2 -bottom-0.5 h-0.5 origin-left scale-x-0 rounded-full bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100" />
             </a>
           ))}
         </div>
@@ -87,7 +86,7 @@ export function Nav() {
               transition={{ type: "tween", ease: [0.22, 1, 0.36, 1], duration: 0.35 }}
             >
               <div className="flex items-center justify-between">
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-ink font-mono text-sm font-semibold text-bg">
+                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent font-mono text-sm font-bold text-white">
                   {identity.monogram}
                 </span>
                 <button

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { CursorTrail } from "@/components/cursor-trail";
 import { identity } from "@/lib/data";
 
 const geistSans = Geist({
@@ -60,7 +61,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fbfaf7",
+  themeColor: "#fafbff",
   colorScheme: "light",
 };
 
@@ -71,7 +72,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${jetbrainsMono.variable}`}>
-      <body className="page-wash min-h-screen antialiased">{children}</body>
+      <body className="page-wash min-h-screen antialiased">
+        {children}
+        <CursorTrail />
+      </body>
     </html>
   );
 }

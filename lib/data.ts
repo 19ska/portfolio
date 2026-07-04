@@ -72,6 +72,19 @@ export const experience: Experience[] = [
     ],
     tech: ["Python", "scikit-learn", "Pandas", "NumPy"],
   },
+  {
+    role: "AI/ML Intern",
+    company: "Tequed Labs",
+    dates: "Aug 2021 – Sept 2021",
+    location: "Bangalore, India",
+    bullets: [
+      "Developed and evaluated machine learning models using Python and scikit-learn to solve supervised learning and classification problems across structured datasets.",
+      "Performed data cleaning, feature engineering, and exploratory data analysis on datasets containing over 100,000 records, improving data quality and model readiness.",
+      "Implemented and compared multiple machine learning algorithms, achieving up to 15% improvement in predictive performance over baseline models.",
+      "Presented findings and model insights through visualizations and reports, helping stakeholders understand performance trends and key business drivers.",
+    ],
+    tech: ["Python", "scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+  },
 ];
 
 export type Education = {
@@ -224,20 +237,6 @@ export const moreProjects: MoreProject[] = [
     description:
       "Unsupervised video anomaly detection using CAE, VAE, and ConvLSTM on UCSD Ped2. 12% ROC-AUC improvement.",
     tech: ["Python", "PyTorch", "TensorFlow", "Computer Vision", "Autoencoders"],
-    github: "https://github.com/19ska",
-  },
-  {
-    name: "Customer Churn Analysis",
-    description:
-      "End-to-end ML pipeline on 7K+ telecom records. 93% F1-score with 28% recall improvement vs. baseline.",
-    tech: ["Python", "TensorFlow", "scikit-learn", "Pandas", "Feature Engineering"],
-    github: "https://github.com/19ska",
-  },
-  {
-    name: "Email Content Analysis",
-    description:
-      "Hadoop MapReduce pipeline parsing 500K+ emails with K-Means clustering via Apache Mahout. 35% faster ingestion.",
-    tech: ["Hadoop", "MapReduce", "Apache Mahout", "PySpark", "TF-IDF"],
     github: "https://github.com/19ska",
   },
 ];

@@ -1,26 +1,31 @@
 @import "tailwindcss";
 
 /*
- * Design system — warm, cheerful, minimal.
+ * Design system — light, bright blue + yellow.
  * Tailwind v4 is CSS-first: tokens declared in @theme become utilities
  * (e.g. --color-accent -> bg-accent / text-accent).
+ * Note: --color-blush keeps its token name but holds a light sky blue;
+ * --color-amber holds the yellow pop.
  */
 @theme {
-  --color-bg: #fbfaf7;
+  --color-bg: #fafbff;
   --color-surface: #ffffff;
-  --color-ink: #17140f;
-  --color-muted: #6f675a;
-  --color-faint: #9a9184;
-  --color-line: #ece7de;
-  --color-accent: #fb5b38;
-  --color-accent-strong: #e0431f;
-  --color-accent-soft: #ffd9cd;
+  --color-blush: #eaf1fe;
+  --color-ink: #14233f;
+  --color-muted: #4e5e78;
+  --color-faint: #93a1bc;
+  --color-line: #e3e9f5;
+  --color-accent: #2563eb;
+  --color-accent-strong: #1d4ed8;
+  --color-accent-soft: #dbe6ff;
+  --color-amber: #facc15;
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-  --shadow-card: 0 1px 2px rgba(23, 20, 15, 0.04), 0 8px 24px -12px rgba(23, 20, 15, 0.12);
-  --shadow-lift: 0 2px 4px rgba(23, 20, 15, 0.05), 0 20px 40px -16px rgba(224, 67, 31, 0.18);
+  --shadow-card: 0 1px 2px rgba(20, 35, 63, 0.03), 0 10px 30px -16px rgba(20, 35, 63, 0.10);
+  --shadow-lift: 0 2px 6px rgba(20, 35, 63, 0.04), 0 26px 50px -20px rgba(37, 99, 235, 0.26);
+  --shadow-nav: 0 6px 24px -12px rgba(20, 35, 63, 0.12);
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -49,11 +54,11 @@ body {
   color: var(--color-accent-strong);
 }
 
-/* A soft warm grain/gradient wash for the page — keeps the off-white alive. */
+/* A soft wash for the page — keeps the blue-white alive. */
 .page-wash {
   background:
-    radial-gradient(60rem 40rem at 85% -10%, rgba(251, 91, 56, 0.06), transparent 60%),
-    radial-gradient(50rem 40rem at 0% 10%, rgba(251, 91, 56, 0.04), transparent 55%);
+    radial-gradient(60rem 40rem at 85% -10%, rgba(37, 99, 235, 0.05), transparent 60%),
+    radial-gradient(50rem 40rem at 0% 10%, rgba(250, 204, 21, 0.06), transparent 55%);
 }
 
 @media (prefers-reduced-motion: reduce) {
