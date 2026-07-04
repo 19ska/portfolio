@@ -77,14 +77,14 @@ export const RobotTerminal = forwardRef<RobotTerminalHandle>(function RobotTermi
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="w-[220px] rounded-[10px] border border-[#2563eb] bg-[#0f172a] p-2.5 shadow-[0_14px_34px_-12px_rgba(15,23,42,0.7)]"
+            className="w-[220px] rounded-[10px] border border-[#4f7cff] bg-[#0f172a] p-2.5 shadow-[0_14px_34px_-12px_rgba(15,23,42,0.7)]"
           >
             <div className="mb-2 flex items-center gap-1.5">
               <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#ffe500]" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#2acf2a]" />
             </div>
-            <p className="font-mono text-[11px] leading-relaxed text-[#2563eb]">
+            <p className="font-mono text-[11px] leading-relaxed text-[#4f7cff]">
               {fact.slice(0, count)}
               <motion.span
                 aria-hidden

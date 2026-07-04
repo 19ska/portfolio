@@ -1,42 +1,36 @@
 @import "tailwindcss";
 
 /*
- * Design system — light, bright blue + yellow.
- * Tailwind v4 is CSS-first: tokens declared in @theme become utilities
- * (e.g. --color-accent -> bg-accent / text-accent).
- * Note: --color-blush keeps its token name but holds a light sky blue;
- * --color-amber holds the yellow pop.
+ * Design system — "Deep Field": dark, immersive, 3D.
+ * Electric blue + yellow glow on near-black. Tailwind v4 is CSS-first:
+ * tokens declared in @theme become utilities (--color-accent -> bg-accent).
  */
 @theme {
-  --color-bg: #fafbff;
-  --color-surface: #ffffff;
-  --color-blush: #eaf1fe;
-  --color-ink: #14233f;
-  --color-muted: #4e5e78;
-  --color-faint: #93a1bc;
-  --color-line: #e3e9f5;
-  --color-accent: #2563eb;
-  --color-accent-strong: #1d4ed8;
-  --color-accent-soft: #dbe6ff;
-  --color-amber: #facc15;
+  --color-bg: #060a14;
+  --color-surface: #0c1326;
+  --color-ink: #eaf0ff;
+  --color-muted: #94a2c4;
+  --color-faint: #5d6b8e;
+  --color-line: #1b2440;
+  --color-accent: #4f7cff;
+  --color-accent-strong: #85a6ff;
+  --color-pop: #facc15;
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-  --shadow-card: 0 1px 2px rgba(20, 35, 63, 0.03), 0 10px 30px -16px rgba(20, 35, 63, 0.10);
-  --shadow-lift: 0 2px 6px rgba(20, 35, 63, 0.04), 0 26px 50px -20px rgba(37, 99, 235, 0.26);
-  --shadow-nav: 0 6px 24px -12px rgba(20, 35, 63, 0.12);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 20px 50px -20px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 60px -12px rgba(79, 124, 255, 0.5);
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html {
   scroll-behavior: smooth;
-  /* Offset anchor targets so fixed nav doesn't overlap headings. */
   scroll-padding-top: 6rem;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -47,18 +41,59 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   font-feature-settings: "cv11", "ss01";
+  overflow-x: hidden;
+}
+
+/* Faint blueprint grid, vignetted so it dissolves at the edges. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background-image:
+    linear-gradient(rgba(148, 162, 196, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 162, 196, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(80% 70% at 50% 30%, black, transparent 80%);
+}
+
+/* Ambient nebula glows. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  background:
+    radial-gradient(55rem 34rem at 82% -8%, rgba(79, 124, 255, 0.14), transparent 60%),
+    radial-gradient(40rem 30rem at 8% 18%, rgba(250, 204, 21, 0.05), transparent 55%),
+    radial-gradient(60rem 44rem at 50% 115%, rgba(79, 124, 255, 0.10), transparent 60%);
 }
 
 ::selection {
-  background-color: var(--color-accent-soft);
-  color: var(--color-accent-strong);
+  background-color: rgba(79, 124, 255, 0.4);
+  color: #eaf0ff;
 }
 
-/* A soft wash for the page — keeps the blue-white alive. */
-.page-wash {
-  background:
-    radial-gradient(60rem 40rem at 85% -10%, rgba(37, 99, 235, 0.05), transparent 60%),
-    radial-gradient(50rem 40rem at 0% 10%, rgba(250, 204, 21, 0.06), transparent 55%);
+/* Frosted glass panel. */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.text-glow {
+  text-shadow: 0 0 28px rgba(79, 124, 255, 0.55);
+}
+
+/* Infinite ticker. */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

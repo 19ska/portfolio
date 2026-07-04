@@ -58,7 +58,7 @@ export function CursorCompanion() {
   const [flash, setFlash] = useState(false);
 
   // Spotlight background follows the spring-smoothed pointer position.
-  const spotlight = useMotionTemplate`radial-gradient(38% 38% at ${glowX}% ${glowY}%, rgba(37,99,235,0.20), transparent 70%)`;
+  const spotlight = useMotionTemplate`radial-gradient(38% 38% at ${glowX}% ${glowY}%, rgba(79,124,255,0.30), transparent 70%)`;
 
   useEffect(() => {
     if (reduce) return;
@@ -165,11 +165,11 @@ export function CursorCompanion() {
       onClick={handleClick}
       className="relative flex aspect-square w-full cursor-pointer items-center justify-center"
     >
-      {/* Soft violet halo behind the robot circle */}
+      {/* Soft blue nebula halo behind the robot circle */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-20"
-        style={{ background: "radial-gradient(circle at 50% 46%, #eaf1fe, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle at 50% 46%, rgba(79,124,255,0.18), transparent 70%)" }}
       />
 
       {/* Spotlight glow that trails the cursor */}
@@ -178,15 +178,19 @@ export function CursorCompanion() {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           backgroundImage: reduce
-            ? "radial-gradient(38% 38% at 55% 40%, rgba(37,99,235,0.16), transparent 70%)"
+            ? "radial-gradient(38% 38% at 55% 40%, rgba(79,124,255,0.18), transparent 70%)"
             : spotlight,
         }}
       />
 
-      {/* Lavender robot circle + violet orbit ring */}
+      {/* Glass porthole + dashed orbit ring */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-[8%] rounded-full border border-dashed border-accent/40 bg-blush"
+        className="glass pointer-events-none absolute inset-[8%] rounded-full"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-[4%] rounded-full border border-dashed border-accent/25"
       />
 
       {/* Terminal popup — types a random fact on click */}
@@ -202,37 +206,37 @@ export function CursorCompanion() {
         <motion.div animate={wiggle}>
           <motion.svg
             viewBox="0 0 240 240"
-            className="w-full drop-shadow-[0_20px_40px_rgba(37,99,235,0.20)]"
+            className="w-full drop-shadow-[0_20px_40px_rgba(79,124,255,0.30)]"
             style={reduce ? undefined : { rotate: tilt, x: driftX, y: driftY }}
             role="img"
             aria-label="A friendly robot that watches your cursor — click it"
           >
             {/* Antenna */}
-            <line x1="120" y1="44" x2="120" y2="18" stroke="var(--color-ink)" strokeWidth="4" strokeLinecap="round" />
+            <line x1="120" y1="44" x2="120" y2="18" stroke="#eaf0ff" strokeWidth="4" strokeLinecap="round" />
             <motion.circle
               cx="120"
               cy="12"
               r="9"
-              fill="var(--color-amber)"
+              fill="var(--color-pop)"
               animate={antenna}
               style={{ transformOrigin: "center", transformBox: "fill-box" }}
             />
 
-            {/* Head */}
-            <rect x="46" y="44" width="148" height="128" rx="34" fill="var(--color-surface)" stroke="var(--color-accent)" strokeWidth="3" />
+            {/* Head — bright against the dark scene */}
+            <rect x="46" y="44" width="148" height="128" rx="34" fill="#f4f7ff" stroke="var(--color-accent)" strokeWidth="3" />
             {/* Cheek blush — soft blue */}
             <circle cx="74" cy="132" r="9" fill="#bcd6ff" />
             <circle cx="166" cy="132" r="9" fill="#bcd6ff" />
 
             {/* Eyes */}
             <motion.g style={reduce ? undefined : { scaleY: blink, transformOrigin: "center", transformBox: "fill-box" }}>
-              <circle ref={leftEyeRef} cx="95" cy="102" r="20" fill="#fff" stroke="var(--color-line)" strokeWidth="2" />
-              <motion.circle cx="95" cy="102" r="9" fill={flash ? "#2563eb" : "var(--color-ink)"} style={reduce ? undefined : { x: lx, y: ly }} />
+              <circle ref={leftEyeRef} cx="95" cy="102" r="20" fill="#fff" stroke="#c9d6f5" strokeWidth="2" />
+              <motion.circle cx="95" cy="102" r="9" fill={flash ? "#4f7cff" : "#101828"} style={reduce ? undefined : { x: lx, y: ly }} />
               <circle cx="99" cy="98" r="2.6" fill="#fff" />
             </motion.g>
             <motion.g style={reduce ? undefined : { scaleY: blink, transformOrigin: "center", transformBox: "fill-box" }}>
-              <circle ref={rightEyeRef} cx="145" cy="102" r="20" fill="#fff" stroke="var(--color-line)" strokeWidth="2" />
-              <motion.circle cx="145" cy="102" r="9" fill={flash ? "#2563eb" : "var(--color-ink)"} style={reduce ? undefined : { x: rx, y: ry }} />
+              <circle ref={rightEyeRef} cx="145" cy="102" r="20" fill="#fff" stroke="#c9d6f5" strokeWidth="2" />
+              <motion.circle cx="145" cy="102" r="9" fill={flash ? "#4f7cff" : "#101828"} style={reduce ? undefined : { x: rx, y: ry }} />
               <circle cx="149" cy="98" r="2.6" fill="#fff" />
             </motion.g>
 
@@ -242,7 +246,7 @@ export function CursorCompanion() {
               animate={reduce ? undefined : { scaleX: happy ? 1.3 : 1, scaleY: happy ? 1.15 : 1 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             >
-              <path d={SMILE} fill="none" stroke="var(--color-ink)" strokeWidth="4" strokeLinecap="round" />
+              <path d={SMILE} fill="none" stroke="#101828" strokeWidth="4" strokeLinecap="round" />
             </motion.g>
           </motion.svg>
         </motion.div>

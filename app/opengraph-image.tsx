@@ -16,9 +16,9 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px",
-          backgroundColor: "#fafbff",
+          backgroundColor: "#060a14",
           backgroundImage:
-            "radial-gradient(1000px 600px at 90% -10%, rgba(37,99,235,0.14), transparent 60%)",
+            "radial-gradient(1000px 600px at 90% -10%, rgba(79,124,255,0.18), transparent 60%)",
           fontFamily: "sans-serif",
         }}
       >
@@ -28,8 +28,8 @@ export default function OpengraphImage() {
               width: 64,
               height: 64,
               borderRadius: 16,
-              backgroundColor: "#2563eb",
-              color: "#ffffff",
+              backgroundColor: "#4f7cff",
+              color: "#060a14",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -39,29 +39,29 @@ export default function OpengraphImage() {
           >
             {identity.monogram}
           </div>
-          <div style={{ fontSize: 26, color: "#4e5e78" }}>{identity.location}</div>
+          <div style={{ fontSize: 26, color: "#94a2c4" }}>{identity.location}</div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-          <div style={{ fontSize: 40, color: "#4e5e78" }}>{identity.name}</div>
+          <div style={{ fontSize: 40, color: "#94a2c4" }}>{identity.name}</div>
           <div
             style={{
               display: "flex",
               flexWrap: "wrap",
               fontSize: 68,
               fontWeight: 600,
-              color: "#14233f",
+              color: "#eaf0ff",
               lineHeight: 1.15,
               letterSpacing: "-0.02em",
               maxWidth: 980,
             }}
           >
             <span>I build production AI systems&nbsp;</span>
-            <span style={{ color: "#2563eb" }}>from model to infrastructure.</span>
+            <span style={{ color: "#85a6ff" }}>from model to infrastructure.</span>
           </div>
         </div>
 
-        <div style={{ display: "flex", fontSize: 26, color: "#4e5e78" }}>
+        <div style={{ display: "flex", fontSize: 26, color: "#94a2c4" }}>
           {identity.role}
         </div>
       </div>
