@@ -58,7 +58,7 @@ export function CursorCompanion() {
   const [flash, setFlash] = useState(false);
 
   // Spotlight background follows the spring-smoothed pointer position.
-  const spotlight = useMotionTemplate`radial-gradient(38% 38% at ${glowX}% ${glowY}%, rgba(79,124,255,0.30), transparent 70%)`;
+  const spotlight = useMotionTemplate`radial-gradient(38% 38% at ${glowX}% ${glowY}%, rgba(37,99,235,0.30), transparent 70%)`;
 
   useEffect(() => {
     if (reduce) return;
@@ -169,7 +169,7 @@ export function CursorCompanion() {
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-20"
-        style={{ background: "radial-gradient(circle at 50% 46%, rgba(79,124,255,0.18), transparent 70%)" }}
+        style={{ background: "radial-gradient(circle at 50% 46%, rgba(37,99,235,0.18), transparent 70%)" }}
       />
 
       {/* Spotlight glow that trails the cursor */}
@@ -178,7 +178,7 @@ export function CursorCompanion() {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           backgroundImage: reduce
-            ? "radial-gradient(38% 38% at 55% 40%, rgba(79,124,255,0.18), transparent 70%)"
+            ? "radial-gradient(38% 38% at 55% 40%, rgba(37,99,235,0.18), transparent 70%)"
             : spotlight,
         }}
       />
@@ -206,13 +206,13 @@ export function CursorCompanion() {
         <motion.div animate={wiggle}>
           <motion.svg
             viewBox="0 0 240 240"
-            className="w-full drop-shadow-[0_20px_40px_rgba(79,124,255,0.30)]"
+            className="w-full drop-shadow-[0_20px_40px_rgba(37,99,235,0.30)]"
             style={reduce ? undefined : { rotate: tilt, x: driftX, y: driftY }}
             role="img"
             aria-label="A friendly robot that watches your cursor — click it"
           >
             {/* Antenna */}
-            <line x1="120" y1="44" x2="120" y2="18" stroke="#eaf0ff" strokeWidth="4" strokeLinecap="round" />
+            <line x1="120" y1="44" x2="120" y2="18" stroke="#0f172a" strokeWidth="4" strokeLinecap="round" />
             <motion.circle
               cx="120"
               cy="12"
@@ -231,12 +231,12 @@ export function CursorCompanion() {
             {/* Eyes */}
             <motion.g style={reduce ? undefined : { scaleY: blink, transformOrigin: "center", transformBox: "fill-box" }}>
               <circle ref={leftEyeRef} cx="95" cy="102" r="20" fill="#fff" stroke="#c9d6f5" strokeWidth="2" />
-              <motion.circle cx="95" cy="102" r="9" fill={flash ? "#4f7cff" : "#101828"} style={reduce ? undefined : { x: lx, y: ly }} />
+              <motion.circle cx="95" cy="102" r="9" fill={flash ? "#2563eb" : "#101828"} style={reduce ? undefined : { x: lx, y: ly }} />
               <circle cx="99" cy="98" r="2.6" fill="#fff" />
             </motion.g>
             <motion.g style={reduce ? undefined : { scaleY: blink, transformOrigin: "center", transformBox: "fill-box" }}>
               <circle ref={rightEyeRef} cx="145" cy="102" r="20" fill="#fff" stroke="#c9d6f5" strokeWidth="2" />
-              <motion.circle cx="145" cy="102" r="9" fill={flash ? "#4f7cff" : "#101828"} style={reduce ? undefined : { x: rx, y: ry }} />
+              <motion.circle cx="145" cy="102" r="9" fill={flash ? "#2563eb" : "#101828"} style={reduce ? undefined : { x: rx, y: ry }} />
               <circle cx="149" cy="98" r="2.6" fill="#fff" />
             </motion.g>
 

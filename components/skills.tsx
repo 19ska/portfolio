@@ -7,8 +7,7 @@ export function Skills() {
     <Section
       id="skills"
       index="05"
-      eyebrow="Skills"
-      title="A toolkit built across research and production."
+      title="Skills"
     >
       <Reveal stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {skillGroups.map((group) => (
@@ -20,7 +19,7 @@ export function Skills() {
               {group.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-full border border-white/15 px-3 py-1.5 text-[13px] leading-none text-ink/85 transition-colors duration-200 hover:border-accent hover:bg-accent hover:text-bg"
+                  className="rounded-full border border-line bg-surface px-3 py-1.5 text-[13px] leading-none text-ink/85 shadow-[0_2px_8px_-4px_rgba(37,99,235,0.25)] transition-colors duration-200 hover:border-accent hover:bg-accent hover:text-white"
                 >
                   {skill}
                 </span>

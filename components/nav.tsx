@@ -29,7 +29,7 @@ export function Nav() {
       <nav
         className={`mx-auto flex h-14 w-full max-w-4xl items-center justify-between rounded-full border px-4 transition-all duration-300 ${
           scrolled
-            ? "border-white/10 bg-bg/70 shadow-[0_10px_40px_-12px_rgba(0,0,0,0.7)] backdrop-blur-xl"
+            ? "border-white/80 bg-surface/70 shadow-[0_12px_36px_-12px_rgba(37,99,235,0.25)] backdrop-blur-xl"
             : "border-transparent bg-transparent"
         }`}
       >
@@ -38,7 +38,7 @@ export function Nav() {
           className="group inline-flex items-center gap-2"
           aria-label={`${identity.name} — back to top`}
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent font-mono text-sm font-bold text-bg shadow-glow transition-transform group-hover:-rotate-6">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent font-mono text-sm font-bold text-white shadow-glow transition-transform group-hover:-rotate-6">
             {identity.monogram}
           </span>
         </a>
@@ -81,14 +81,14 @@ export function Nav() {
               aria-hidden
             />
             <motion.div
-              className="absolute right-0 top-0 flex h-full w-4/5 max-w-xs flex-col border-l border-white/10 bg-surface p-6"
+              className="absolute right-0 top-0 flex h-full w-4/5 max-w-xs flex-col border-l border-line bg-surface p-6"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", ease: [0.22, 1, 0.36, 1], duration: 0.35 }}
             >
               <div className="flex items-center justify-between">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent font-mono text-sm font-bold text-bg">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent font-mono text-sm font-bold text-white">
                   {identity.monogram}
                 </span>
                 <button

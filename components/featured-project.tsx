@@ -21,7 +21,7 @@ export function FeaturedProject({ project }: { project: Project }) {
       />
       {/* Editorial index number */}
       <span
-        className="pointer-events-none absolute right-6 top-2 select-none font-mono text-[120px] font-extrabold leading-none text-transparent [-webkit-text-stroke:1px_rgba(79,124,255,0.2)]"
+        className="pointer-events-none absolute right-6 top-2 hidden select-none font-mono text-[120px] font-extrabold leading-none text-transparent sm:block [-webkit-text-stroke:1px_rgba(37,99,235,0.08)]"
         aria-hidden
       >
         01
@@ -50,8 +50,8 @@ export function FeaturedProject({ project }: { project: Project }) {
           {/* Right — glowing stat callouts */}
           <div className="grid grid-cols-3 gap-4 lg:grid-cols-1 lg:gap-6">
             {heroStats.map((s) => (
-              <div key={s.unit} className="rounded-xl border border-accent/25 bg-accent/10 px-4 py-4">
-                <div className="text-glow font-mono text-2xl font-bold leading-none text-accent-strong sm:text-3xl">
+              <div key={s.unit} className="rounded-xl border border-accent/40 bg-[#eff6ff] px-4 py-4">
+                <div className="font-mono text-3xl font-extrabold leading-none text-accent sm:text-4xl">
                   {s.value}
                 </div>
                 <div className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-muted">
@@ -69,7 +69,7 @@ export function FeaturedProject({ project }: { project: Project }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`View ${project.name} on GitHub`}
-            className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-xs font-semibold text-bg transition-colors hover:bg-pop"
+            className="inline-flex items-center gap-1.5 rounded-full border border-accent px-4 py-2 text-xs font-semibold text-accent transition-colors hover:bg-accent hover:text-white"
           >
             <GithubIcon className="h-3.5 w-3.5" />
             View on GitHub

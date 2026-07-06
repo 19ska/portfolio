@@ -46,7 +46,7 @@ export function CursorTrail() {
     <motion.div
       aria-hidden
       className="pointer-events-none fixed left-0 top-0 z-[9999] h-2 w-2 rounded-full"
-      style={{ x, y, opacity, backgroundColor: "#4f7cff", filter: "blur(1px)" }}
+      style={{ x, y, opacity, backgroundColor: "#2563eb", filter: "blur(1px)" }}
     />
   );
 }

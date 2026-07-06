@@ -8,7 +8,7 @@ export function Publications() {
   const upcoming = publications.find((p) => p.upcoming);
 
   return (
-    <Section id="publications" index="06" eyebrow="Publications" title="Peer-reviewed research & writing.">
+    <Section id="publications" index="06" title="Publications">
       <Reveal stagger className="grid gap-4 lg:grid-cols-2">
         {/* Left column — published papers, stacked */}
         <div className="flex flex-col gap-4">
@@ -47,7 +47,7 @@ export function Publications() {
         {/* Right column — upcoming, visually distinct */}
         {upcoming ? (
           <RevealItem className="flex h-full flex-col justify-center rounded-2xl border border-dashed border-accent/40 bg-accent/5 p-8 backdrop-blur-sm">
-            <span className="inline-flex w-fit items-center rounded-full bg-pop px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-bg">
+            <span className="inline-flex w-fit items-center rounded-full bg-pop px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-ink">
               Upcoming
             </span>
             <h3 className="mt-5 text-xl font-semibold tracking-tight text-ink">{upcoming.title}</h3>

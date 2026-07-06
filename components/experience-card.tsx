@@ -7,7 +7,7 @@ export function ExperienceCard({ job }: { job: Experience }) {
     <TiltCard max={4} className="group glass relative overflow-hidden rounded-2xl shadow-card">
       {/* Accent left stripe that glows on hover */}
       <span
-        className="absolute inset-y-0 left-0 w-1 bg-accent transition-shadow duration-300 group-hover:shadow-[0_0_20px_4px_rgba(79,124,255,0.6)]"
+        className="absolute inset-y-0 left-0 z-10 w-1 bg-accent transition-shadow duration-300 group-hover:shadow-[0_0_20px_4px_rgba(37,99,235,0.6)]"
         aria-hidden
       />
 

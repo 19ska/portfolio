@@ -1,32 +1,35 @@
 @import "tailwindcss";
 
 /*
- * Design system — "Deep Field": dark, immersive, 3D.
- * Electric blue + yellow glow on near-black. Tailwind v4 is CSS-first:
- * tokens declared in @theme become utilities (--color-accent -> bg-accent).
+ * Design system — "Daylight": bright, airy, dimensional.
+ * White paper planes floating over pastel depth-of-field orbs,
+ * indigo-blue accent + warm amber pop, one dark dusk finale.
+ * Tailwind v4 is CSS-first: tokens in @theme become utilities.
  */
 @theme {
-  --color-bg: #060a14;
-  --color-surface: #0c1326;
-  --color-ink: #eaf0ff;
-  --color-muted: #94a2c4;
-  --color-faint: #5d6b8e;
-  --color-line: #1b2440;
-  --color-accent: #4f7cff;
-  --color-accent-strong: #85a6ff;
-  --color-pop: #facc15;
+  --color-bg: #f5f7fe;
+  --color-surface: #ffffff;
+  --color-ink: #0f172a;
+  --color-muted: #51607f;
+  --color-faint: #93a0bd;
+  --color-line: #e2e8f7;
+  --color-accent: #2563eb;
+  --color-accent-strong: #2563eb;
+  --color-pop: #ffb01f;
+  --color-dusk: #0c1430;
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 20px 50px -20px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 60px -12px rgba(79, 124, 255, 0.5);
+  --shadow-card: 0 2px 6px rgba(16, 26, 51, 0.04), 0 24px 48px -20px rgba(37, 99, 235, 0.18);
+  --shadow-lift: 0 4px 10px rgba(16, 26, 51, 0.05), 0 32px 64px -24px rgba(37, 99, 235, 0.30);
+  --shadow-glow: 0 10px 34px -10px rgba(37, 99, 235, 0.55);
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -51,49 +54,54 @@ body::before {
   inset: 0;
   z-index: -3;
   background-image:
-    linear-gradient(rgba(148, 162, 196, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 162, 196, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(80% 70% at 50% 30%, black, transparent 80%);
 }
 
-/* Ambient nebula glows. */
+/* Ambient daylight aurora. */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -4;
   background:
-    radial-gradient(55rem 34rem at 82% -8%, rgba(79, 124, 255, 0.14), transparent 60%),
-    radial-gradient(40rem 30rem at 8% 18%, rgba(250, 204, 21, 0.05), transparent 55%),
-    radial-gradient(60rem 44rem at 50% 115%, rgba(79, 124, 255, 0.10), transparent 60%);
+    radial-gradient(55rem 34rem at 82% -8%, rgba(37, 99, 235, 0.10), transparent 60%),
+    radial-gradient(44rem 30rem at 6% 14%, rgba(255, 176, 31, 0.10), transparent 55%),
+    radial-gradient(60rem 40rem at 50% 115%, rgba(183, 156, 255, 0.12), transparent 60%);
 }
 
 ::selection {
-  background-color: rgba(79, 124, 255, 0.4);
-  color: #eaf0ff;
+  background-color: rgba(37, 99, 235, 0.2);
+  color: #0f172a;
 }
 
-/* Frosted glass panel. */
+/* Crisp white paper panel. */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: #ffffff;
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-card);
 }
 
-.text-glow {
-  text-shadow: 0 0 28px rgba(79, 124, 255, 0.55);
+/* Extruded 3D type — daylight version of a glow. */
+.text-3d {
+  text-shadow:
+    0 1px 0 #bfd0fb,
+    0 2px 0 #a9befa,
+    0 3px 0 #93abf8,
+    0 5px 0 #7d98f0,
+    0 9px 22px rgba(37, 99, 235, 0.4);
 }
 
-/* Infinite ticker. */
-@keyframes marquee {
+/* Perspective grid floor racing toward the horizon. */
+@keyframes grid-flow {
   to {
-    transform: translateX(-50%);
+    background-position: 0 56px;
   }
 }
-.animate-marquee {
-  animation: marquee 32s linear infinite;
+.animate-grid-flow {
+  animation: grid-flow 2.6s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

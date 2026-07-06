@@ -7,7 +7,7 @@ export function EducationCard({ edu }: { edu: Education }) {
 
   return (
     <TiltCard className="glass flex h-full flex-col rounded-2xl p-8 shadow-card">
-      <span className="flex h-16 w-16 items-center justify-center rounded-2xl border border-accent/30 bg-accent/10 font-mono text-2xl font-bold text-accent-strong">
+      <span className="flex h-16 w-16 items-center justify-center rounded-2xl border border-accent bg-[#eff6ff] font-mono text-2xl font-bold text-accent">
         {initial}
       </span>
 

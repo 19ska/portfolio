@@ -180,7 +180,7 @@ export const featuredProjects: Project[] = [
       "95%+ grammar rule coverage in unit test suite",
     ],
     tech: ["Python", "NumPy", "Pygame", "Threading", "DSL Design", "Compilers"],
-    github: "https://github.com/19ska",
+    github: "https://github.com/19ska/A-Live-Coding-Language-for-Real-Time-Music-Generation",
   },
   {
     name: "DQN Routing & Spectrum Allocation Agent",
@@ -193,7 +193,7 @@ export const featuredProjects: Project[] = [
       "Hyperparameter optimization via Optuna (TPE + median pruning) over multiple trials",
     ],
     tech: ["Python", "PyTorch", "Stable-Baselines3", "Gymnasium", "Optuna", "DQN", "RL"],
-    github: "https://github.com/19ska",
+    github: "https://github.com/19ska/Routing-and-Spectrum-Allocation-Problem",
   },
   {
     name: "AudioTranscriber — Real-Time Speech AI Pipeline",
@@ -206,7 +206,7 @@ export const featuredProjects: Project[] = [
       "Dual-backend failover reduces failed transcriptions by 40%; supports 4+ hour continuous sessions",
     ],
     tech: ["Swift", "SwiftUI", "AVAudioEngine", "OpenAI Whisper", "SFSpeechRecognizer", "SwiftData", "iOS"],
-    github: "https://github.com/19ska",
+    github: "https://github.com/19ska/AudioTranscriber",
   },
 ];
 
@@ -223,21 +223,21 @@ export const moreProjects: MoreProject[] = [
     description:
       "Location-based food discussion platform on AWS with Terraform IaC, Cognito auth, and a serverless backend. 45% faster geospatial search.",
     tech: ["AWS", "Terraform", "Lambda", "API Gateway", "Cognito", "React"],
-    github: "https://github.com/19ska",
+    github: "https://github.com/19ska/tastythreads-app",
   },
   {
     name: "Multimodal Sleep Stage Classification",
     description:
       "Wearable AI pipeline on EEG + accelerometer signals achieving 0.82 accuracy (0.67 macro-F1). 32% improvement over baseline.",
     tech: ["Python", "scikit-learn", "NumPy", "Signal Processing", "EEG"],
-    github: "https://github.com/19ska",
+    github: "https://github.com/19ska/automated-sleep-stage-classification",
   },
   {
     name: "Anomaly Detection in Surveillance Videos",
     description:
       "Unsupervised video anomaly detection using CAE, VAE, and ConvLSTM on UCSD Ped2. 12% ROC-AUC improvement.",
     tech: ["Python", "PyTorch", "TensorFlow", "Computer Vision", "Autoencoders"],
-    github: "https://github.com/19ska",
+    github: "https://github.com/19ska/Anomaly-Detection-in-Surveillance-Videos-using-Autoencoders-",
   },
 ];
 

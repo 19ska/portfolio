@@ -32,7 +32,7 @@ export function ProjectCard({ project }: { project: Project }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`View ${project.name} on GitHub`}
-        className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full border border-line px-3.5 py-1.5 text-xs font-medium text-muted transition-colors hover:border-accent hover:text-accent-strong"
+        className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full border border-accent px-3.5 py-1.5 text-xs font-semibold text-accent transition-colors hover:bg-accent hover:text-white"
       >
         <GithubIcon className="h-3.5 w-3.5" />
         View on GitHub

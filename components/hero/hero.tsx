@@ -9,10 +9,7 @@ import {
 } from "framer-motion";
 import { ArrowDown, ChevronDown, MapPin } from "lucide-react";
 import { CursorCompanion } from "@/components/hero/cursor-companion";
-import { identity } from "@/lib/data";
 import { EASE_OUT_SOFT } from "@/lib/motion";
-
-const stats = ["5M+ req/day", "88% Micro-F1", "300+ QPS"];
 
 // Manual stagger so the hero animates on load (not on scroll).
 const entrance = (delay: number) => ({
@@ -45,6 +42,12 @@ export function Hero() {
       id="top"
       className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-6 pt-28 pb-24 sm:pt-24"
     >
+      {/* Perspective grid floor racing toward the horizon */}
+      <div
+        aria-hidden
+        className="animate-grid-flow pointer-events-none absolute inset-x-[-30%] bottom-0 -z-10 h-72 origin-bottom bg-[linear-gradient(rgba(37,99,235,0.16)_1.5px,transparent_1.5px),linear-gradient(90deg,rgba(37,99,235,0.16)_1.5px,transparent_1.5px)] bg-[size:56px_56px] [transform:perspective(560px)_rotateX(63deg)] [mask-image:linear-gradient(to_top,black_20%,transparent_85%)]"
+      />
+
       <div className="grid items-center gap-10 lg:grid-cols-[3fr_2fr] lg:gap-6">
         {/* Left — copy, leaning in 3D toward the cursor */}
         <motion.div style={reduce ? undefined : { rotateX: rx, rotateY: ry, transformPerspective: 1400 }}>
@@ -63,59 +66,56 @@ export function Hero() {
             </span>
           </motion.div>
 
-          {/* Name with drawn-in underline */}
-          <motion.p {...entrance(0.12)} className="mb-4 text-base font-medium text-muted">
+          {/* Name — the largest element in the hero */}
+          <motion.h1
+            {...entrance(0.12)}
+            className="text-[12vw] font-extrabold leading-[1.02] tracking-[-0.03em] text-ink sm:text-6xl lg:text-[72px]"
+          >
+            Skanda
+            <br />
             <span className="relative inline-block">
-              {identity.name}
+              Gonur Nagaraj
               <motion.span
-                className="absolute -bottom-1 left-0 h-0.5 w-full origin-left rounded-full bg-accent"
+                className="absolute -bottom-2 left-0 h-1.5 w-full origin-left rounded-full bg-accent"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ duration: 0.9, ease: EASE_OUT_SOFT, delay: 0.6 }}
+                transition={{ duration: 0.9, ease: EASE_OUT_SOFT, delay: 0.7 }}
+                aria-hidden
               />
             </span>
-          </motion.p>
-
-          {/* Massive headline */}
-          <motion.h1
-            {...entrance(0.18)}
-            className="text-[13vw] font-extrabold leading-[0.95] tracking-[-0.03em] text-ink sm:text-6xl lg:text-[80px]"
-          >
-            I build production
-            <br />
-            AI systems —
-            <br />
-            <span className="text-glow text-accent-strong">from model to</span>
-            <br />
-            <span className="text-glow text-accent-strong">infrastructure.</span>
           </motion.h1>
 
-          {/* Sub line */}
-          <motion.p {...entrance(0.26)} className="mt-7 max-w-xl text-base leading-relaxed text-muted">
-            MS Computer Science · San Jose State University · Former Software Engineer at Vodafone
+          {/* Tagline */}
+          <motion.p
+            {...entrance(0.2)}
+            className="mt-7 max-w-xl text-xl font-semibold leading-snug tracking-tight text-ink sm:text-2xl"
+          >
+            I build production AI systems —{" "}
+            <span className="text-accent">from model to infrastructure.</span>
           </motion.p>
 
-          {/* Stats row */}
-          <motion.div
-            {...entrance(0.32)}
-            className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-sm text-accent-strong"
-          >
-            {stats.map((s, i) => (
-              <span key={s} className="inline-flex items-center gap-3">
-                {i > 0 ? <span className="text-faint">·</span> : null}
-                {s}
-              </span>
-            ))}
+          {/* Credential + seeking */}
+          <motion.div {...entrance(0.28)} className="mt-6 space-y-1.5">
+            <p className="font-mono text-sm text-muted">
+              MS Computer Science · San Jose State University
+            </p>
+            <p className="text-[15px] leading-relaxed text-muted">
+              Actively seeking{" "}
+              <span className="font-semibold text-ink">
+                Software Engineer · AI Engineer · ML Engineer
+              </span>{" "}
+              roles.
+            </p>
           </motion.div>
 
           {/* Single CTA */}
-          <motion.div {...entrance(0.4)} className="mt-9">
+          <motion.div {...entrance(0.38)} className="mt-9">
             <motion.a
               href="#projects"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 24 }}
-              className="group inline-flex items-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-base font-semibold text-bg shadow-glow transition-colors hover:bg-pop"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-base font-semibold text-white shadow-glow transition-colors hover:bg-pop"
             >
               View Projects
               <ArrowDown className="h-5 w-5 transition-transform group-hover:translate-y-0.5" strokeWidth={2.5} />

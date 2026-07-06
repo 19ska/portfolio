@@ -10,9 +10,7 @@ export function Projects() {
     <Section
       id="projects"
       index="04"
-      eyebrow="Projects"
-      title="Systems built to hold up under pressure."
-      intro="A selection of production systems and research work — spanning LLM infrastructure, NLP, reinforcement learning, and language design."
+      title="Projects"
     >
       {/* Hero project — full width */}
       <Reveal className="mb-6">

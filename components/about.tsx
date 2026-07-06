@@ -15,7 +15,7 @@ export function About() {
     <section id="about" className="relative">
       <span
         aria-hidden
-        className="pointer-events-none absolute right-4 top-10 select-none font-mono text-[110px] font-extrabold leading-none text-transparent sm:right-10 sm:text-[160px] [-webkit-text-stroke:1px_rgba(79,124,255,0.16)]"
+        className="pointer-events-none absolute right-6 top-10 hidden select-none font-mono text-[130px] font-extrabold leading-none text-transparent sm:block sm:right-10 sm:text-[160px] [-webkit-text-stroke:1px_rgba(37,99,235,0.08)]"
       >
         01
       </span>
@@ -24,12 +24,12 @@ export function About() {
         <Reveal stagger className="grid gap-12 lg:grid-cols-[55fr_45fr] lg:gap-16">
           {/* Left — pull quote */}
           <RevealItem>
-            <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-accent-strong">
-              <span className="h-px w-8 bg-accent" aria-hidden />
+            <h2 className="text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-[44px]">
               About
-            </span>
+            </h2>
+            <div className="mt-3 h-1 w-14 rounded-full bg-accent" aria-hidden />
             <p className="mt-6 max-w-md font-mono text-sm leading-relaxed text-muted">{lead}</p>
-            <blockquote className="text-glow mt-4 text-3xl font-bold leading-[1.08] tracking-tight text-ink sm:text-4xl lg:text-[42px]">
+            <blockquote className="mt-4 text-3xl font-bold leading-[1.08] tracking-tight text-ink sm:text-4xl lg:text-[42px]">
               {quote}
             </blockquote>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">{rest}</p>

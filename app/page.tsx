@@ -1,6 +1,5 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero/hero";
-import { Marquee } from "@/components/fx/marquee";
 import { About } from "@/components/about";
 import { Experience } from "@/components/experience";
 import { Education } from "@/components/education";
@@ -15,7 +14,6 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <Marquee />
         <About />
         <Experience />
         <Education />

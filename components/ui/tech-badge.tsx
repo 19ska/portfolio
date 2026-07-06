@@ -1,6 +1,6 @@
 export function TechBadge({ label }: { label: string }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-accent/25 bg-accent/10 px-2.5 py-1 font-mono text-[11px] leading-none text-accent-strong">
+    <span className="inline-flex items-center rounded-full border border-accent bg-white px-2.5 py-1 font-mono text-[11px] leading-none text-accent">
       {label}
     </span>
   );
