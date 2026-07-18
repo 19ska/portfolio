@@ -1,41 +1,32 @@
-import { TiltCard } from "@/components/fx/tilt-card";
 import { TechRow } from "@/components/ui/tech-badge";
 import type { Experience } from "@/lib/data";
 
-export function ExperienceCard({ job }: { job: Experience }) {
+export function ExperienceCard({ job, index }: { job: Experience; index: number }) {
   return (
-    <TiltCard max={4} className="group glass relative overflow-hidden rounded-2xl shadow-card">
-      {/* Accent left stripe that glows on hover */}
-      <span
-        className="absolute inset-y-0 left-0 z-10 w-1 bg-accent transition-shadow duration-300 group-hover:shadow-[0_0_20px_4px_rgba(37,99,235,0.6)]"
-        aria-hidden
-      />
-
-      <div className="p-7 pl-9 sm:p-9 sm:pl-12">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-          <div>
-            <h3 className="text-2xl font-bold tracking-tight text-ink">{job.role}</h3>
-            <p className="mt-0.5 text-[15px] font-medium text-accent-strong">{job.company}</p>
-          </div>
-          <div className="font-mono text-xs text-faint sm:text-right">
-            <p className="text-muted">{job.dates}</p>
-            {job.location ? <p className="mt-0.5">{job.location}</p> : null}
-          </div>
+    <div className="group border-b border-line py-8 pl-4 -ml-4 border-l-2 border-l-transparent transition-colors duration-200 first:pt-0 last:border-b-0 hover:border-l-accent">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+        <div className="flex items-baseline gap-3">
+          <span className="font-mono text-xs text-faint">{String(index + 1).padStart(2, "0")}</span>
+          <h3 className="text-xl font-extrabold tracking-tight text-ink">{job.company}</h3>
         </div>
-
-        <ul className="mt-5 space-y-2.5">
-          {job.bullets.map((b, i) => (
-            <li key={i} className="flex gap-3 text-[15px] leading-relaxed text-muted">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
-              {b}
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-6">
-          <TechRow tech={job.tech} />
-        </div>
+        <p className="font-mono text-[13px] text-muted">{job.dates}</p>
       </div>
-    </TiltCard>
+      <p className="mt-1 pl-6 text-[13px] text-muted">
+        {job.role}
+        {job.location ? ` · ${job.location}` : ""}
+      </p>
+
+      <ul className="mt-5 space-y-2.5 pl-6">
+        {job.bullets.map((b, i) => (
+          <li key={i} className="bullet text-[14px] leading-relaxed text-[#4a4a4a]">
+            {b}
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-5 pl-6">
+        <TechRow tech={job.tech} />
+      </div>
+    </div>
   );
 }

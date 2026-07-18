@@ -5,10 +5,10 @@ import { experience } from "@/lib/data";
 
 export function Experience() {
   return (
-    <Section id="experience" index="02" title="Experience">
+    <Section id="experience" title="Experience" index="02">
       <Reveal stagger className="flex flex-col gap-6">
-        {experience.map((job) => (
-          <ExperienceCard key={`${job.company}-${job.role}`} job={job} />
+        {experience.map((job, i) => (
+          <ExperienceCard key={`${job.company}-${job.role}`} job={job} index={i} />
         ))}
       </Reveal>
     </Section>

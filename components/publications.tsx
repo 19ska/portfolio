@@ -8,20 +8,20 @@ export function Publications() {
   const upcoming = publications.find((p) => p.upcoming);
 
   return (
-    <Section id="publications" index="06" title="Publications">
-      <Reveal stagger className="grid gap-4 lg:grid-cols-2">
+    <Section id="publications" title="Publications" index="06">
+      <Reveal stagger className="grid gap-10 lg:grid-cols-2">
         {/* Left column — published papers, stacked */}
-        <div className="flex flex-col gap-4">
+        <div>
           {papers.map((pub) => (
             <RevealItem
               key={pub.title}
-              className="glass flex flex-col rounded-2xl p-6 transition-colors hover:border-accent/50"
+              className="group border-b border-line py-6 pl-4 -ml-4 border-l-2 border-l-transparent transition-colors duration-200 first:pt-0 last:border-b-0 hover:border-l-accent"
             >
               <div className="flex items-center justify-between gap-3">
-                <span className="font-mono text-xs uppercase tracking-[0.16em] text-accent-strong">
+                <span className="font-mono text-xs uppercase tracking-[0.16em] text-muted">
                   {pub.journal} · {pub.issn}
                 </span>
-                <span className="shrink-0 font-mono text-xs text-faint">{pub.date}</span>
+                <span className="shrink-0 font-mono text-xs text-muted">{pub.date}</span>
               </div>
 
               <h3 className="mt-4 text-base font-semibold leading-snug tracking-tight text-ink">
@@ -32,25 +32,25 @@ export function Publications() {
                 href={pub.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent-strong transition-colors hover:text-pop"
+                className="group/link mt-4 inline-flex items-center gap-1.5 text-sm text-ink underline-offset-4 hover:underline"
               >
                 Read Paper
                 <ArrowUpRight
-                  className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  strokeWidth={2.25}
+                  className="h-4 w-4 text-accent transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
+                  strokeWidth={2}
                 />
               </a>
             </RevealItem>
           ))}
         </div>
 
-        {/* Right column — upcoming, visually distinct */}
+        {/* Right column — upcoming, visually distinct via type only */}
         {upcoming ? (
-          <RevealItem className="flex h-full flex-col justify-center rounded-2xl border border-dashed border-accent/40 bg-accent/5 p-8 backdrop-blur-sm">
-            <span className="inline-flex w-fit items-center rounded-full bg-pop px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-ink">
+          <RevealItem className="flex h-full flex-col justify-center border-l border-line pl-8">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
               Upcoming
             </span>
-            <h3 className="mt-5 text-xl font-semibold tracking-tight text-ink">{upcoming.title}</h3>
+            <h3 className="mt-4 text-xl font-semibold tracking-tight text-ink">{upcoming.title}</h3>
             <p className="mt-2 font-mono text-sm text-muted">{upcoming.journal}</p>
           </RevealItem>
         ) : null}

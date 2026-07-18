@@ -7,6 +7,7 @@ import { Projects } from "@/components/projects";
 import { Skills } from "@/components/skills";
 import { Publications } from "@/components/publications";
 import { Contact } from "@/components/contact";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Publications />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }

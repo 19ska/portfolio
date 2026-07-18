@@ -1,30 +1,24 @@
-import { TiltCard } from "@/components/fx/tilt-card";
 import { TechRow } from "@/components/ui/tech-badge";
 import type { Education } from "@/lib/data";
 
 export function EducationCard({ edu }: { edu: Education }) {
-  const initial = edu.degree.startsWith("Master") ? "MS" : "BE";
-
   return (
-    <TiltCard className="glass flex h-full flex-col rounded-2xl p-8 shadow-card">
-      <span className="flex h-16 w-16 items-center justify-center rounded-2xl border border-accent bg-[#eff6ff] font-mono text-2xl font-bold text-accent">
-        {initial}
-      </span>
-
-      <h3 className="mt-6 text-xl font-bold tracking-tight text-ink">{edu.degree}</h3>
-      <p className="mt-1 text-[15px] font-medium text-accent-strong">{edu.school}</p>
-      <p className="mt-2 font-mono text-xs text-faint">
+    <div className="group border-b border-line py-8 first:pt-0 md:border-b-0 md:border-l md:border-line md:py-0 md:pl-8 md:first:pl-0 md:first:border-l-0">
+      <span className="block h-1.5 w-1.5 rounded-full bg-accent transition-transform duration-200 group-hover:scale-150" aria-hidden />
+      <h3 className="mt-3 text-xl font-extrabold tracking-tight text-ink">{edu.degree}</h3>
+      <p className="mt-1 text-[13px] text-muted">{edu.school}</p>
+      <p className="mt-2 font-mono text-[13px] text-muted">
         {edu.dates} · {edu.location} · GPA {edu.gpa}
       </p>
 
-      <hr className="my-6 border-line" />
+      <div className="mt-6 h-px w-full bg-line" aria-hidden />
 
-      <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent-strong">
+      <span className="mt-6 block font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
         Coursework
       </span>
       <div className="mt-3">
         <TechRow tech={edu.coursework} />
       </div>
-    </TiltCard>
+    </div>
   );
 }

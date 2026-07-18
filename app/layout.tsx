@@ -1,14 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { CursorTrail } from "@/components/cursor-trail";
-import { ScrollProgress } from "@/components/fx/scroll-progress";
-import { Orbfield } from "@/components/fx/orbfield";
+import { CursorField } from "@/components/fx/cursor-field";
 import { identity } from "@/lib/data";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400", "600", "800"],
   display: "swap",
 });
 
@@ -63,7 +62,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f5f7fe",
+  themeColor: "#f5f5f0",
   colorScheme: "light",
 };
 
@@ -73,12 +72,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="min-h-screen antialiased">
-        <Orbfield />
-        <ScrollProgress />
+        <CursorField />
         {children}
-        <CursorTrail />
       </body>
     </html>
   );

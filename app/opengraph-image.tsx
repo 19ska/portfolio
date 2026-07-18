@@ -16,54 +16,34 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px",
-          backgroundColor: "#f5f7fe",
-          backgroundImage:
-            "radial-gradient(1000px 600px at 90% -10%, rgba(37, 99, 235,0.18), transparent 60%)",
+          backgroundColor: "#f5f5f0",
           fontFamily: "sans-serif",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-          <div
-            style={{
-              width: 64,
-              height: 64,
-              borderRadius: 16,
-              backgroundColor: "#2563eb",
-              color: "#ffffff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 30,
-              fontWeight: 600,
-            }}
-          >
-            {identity.monogram}
+          <div style={{ fontSize: 26, color: "#6b6b6b", fontFamily: "monospace" }}>
+            {identity.name}
           </div>
-          <div style={{ fontSize: 26, color: "#51607f" }}>{identity.location}</div>
+          <div style={{ fontSize: 26, color: "#6b6b6b" }}>·</div>
+          <div style={{ fontSize: 26, color: "#6b6b6b" }}>{identity.location}</div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-          <div style={{ fontSize: 40, color: "#51607f" }}>{identity.name}</div>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              fontSize: 68,
-              fontWeight: 600,
-              color: "#0f172a",
-              lineHeight: 1.15,
-              letterSpacing: "-0.02em",
-              maxWidth: 980,
-            }}
-          >
-            <span>I build production AI systems&nbsp;</span>
-            <span style={{ color: "#2563eb" }}>from model to infrastructure.</span>
-          </div>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            fontSize: 68,
+            fontWeight: 800,
+            color: "#0a0a0a",
+            lineHeight: 1.15,
+            letterSpacing: "-0.02em",
+            maxWidth: 980,
+          }}
+        >
+          I build production AI systems from model to infrastructure.
         </div>
 
-        <div style={{ display: "flex", fontSize: 26, color: "#51607f" }}>
-          {identity.role}
-        </div>
+        <div style={{ display: "flex", fontSize: 26, color: "#6b6b6b" }}>{identity.role}</div>
       </div>
     ),
     { ...size },
