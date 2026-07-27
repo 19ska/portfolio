@@ -5,7 +5,7 @@ import { projectGroups } from "@/lib/data";
 
 export function Projects() {
   return (
-    <Section id="projects" title="Projects" index="04">
+    <Section id="projects" title="Projects" index="03">
       <div className="flex flex-col gap-16">
         {projectGroups.map((group) => (
           <div key={group.category}>

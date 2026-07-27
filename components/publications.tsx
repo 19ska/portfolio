@@ -8,7 +8,7 @@ export function Publications() {
   const upcoming = publications.find((p) => p.upcoming);
 
   return (
-    <Section id="publications" title="Publications" index="06">
+    <Section id="publications" title="Publications" index="05">
       <Reveal stagger className="grid gap-10 lg:grid-cols-2">
         {/* Left column — published papers, stacked */}
         <div>

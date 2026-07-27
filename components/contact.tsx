@@ -26,7 +26,7 @@ export function Contact() {
   }
 
   return (
-    <Section id="contact" title="Contact" index="07" center>
+    <Section id="contact" title="Contact" index="06" center>
       <Reveal stagger className="mx-auto max-w-2xl text-center">
         <RevealItem>
           <p className="mx-auto max-w-xl text-base leading-relaxed text-muted">

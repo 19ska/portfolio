@@ -31,20 +31,14 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
-        <a
-          href="#top"
-          className="font-mono text-[13px] text-muted transition-colors hover:text-ink"
-          aria-label={`${identity.name} — back to top`}
-        >
-          {identity.name}
-        </a>
+        <div aria-hidden />
 
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full bg-accent px-4 py-1.5 font-mono text-[13px] font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-[#cca300] hover:shadow-[0_6px_14px_-6px_rgba(240,197,7,0.6)]"
+              className="rounded-full bg-accent px-3 py-1 font-mono text-xs font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-[#cca300] hover:shadow-[0_6px_14px_-6px_rgba(240,197,7,0.6)]"
             >
               {link.label}
             </a>
@@ -83,7 +77,9 @@ export function Nav() {
               transition={{ type: "tween", ease: [0.22, 1, 0.36, 1], duration: 0.35 }}
             >
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[13px] text-muted">{identity.name}</span>
+                <span className="font-mono text-sm font-semibold tracking-[0.1em] text-ink">
+                  {identity.monogram}
+                </span>
                 <button
                   type="button"
                   onClick={() => setOpen(false)}

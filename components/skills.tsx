@@ -4,7 +4,7 @@ import { skillGroups } from "@/lib/data";
 
 export function Skills() {
   return (
-    <Section id="skills" title="Skills" index="05">
+    <Section id="skills" title="Skills" index="04">
       <Reveal stagger as="ul">
         {skillGroups.map((group) => (
           <RevealItem

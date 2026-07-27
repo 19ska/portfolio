@@ -10,7 +10,6 @@ export const identity = {
   phone: "(669) 204-1432",
   linkedin: "https://linkedin.com/in/skandagn",
   github: "https://github.com/19ska",
-  resume: "/resume.pdf",
   tagline: "I build production AI systems — from model to infrastructure.",
   subTagline: "MS Computer Science · SJSU · Former Software Engineer at Vodafone",
 } as const;
@@ -22,15 +21,9 @@ export const credibility = [
 ] as const;
 
 export const about = {
-  quote: "Building at the intersection of NLP, distributed systems, and LLM infrastructure.",
-  intro: [
-    "I'm a Software Engineer and AI/ML Engineer with production backend experience at Vodafone Intelligent Solutions and NLP research at San Jose State University. I've built systems handling 5M+ requests/day and fine-tuned transformer models that beat published benchmarks.",
-    "Right now I'm deep in the intersection of NLP, distributed systems, and LLM infrastructure. I'm looking for roles where I can build AI/ML systems, backend platforms, or both.",
-  ],
-  background:
-    "I'm a Software Engineer and AI/ML Engineer currently completing my Master's in Computer Science at San Jose State University. I spent a year at Vodafone Intelligent Solutions building backend systems that handled millions of requests daily — that experience taught me what production really means.",
-  rightNow:
-    "Right now I'm deep in the intersection of NLP, distributed systems, and large language model infrastructure. I'm actively seeking roles where I can contribute to AI/ML systems, backend platforms, or both.",
+  hook: "Building at the intersection of NLP, distributed systems, and LLM infrastructure.",
+  summary:
+    "I'm a Software Engineer and AI/ML Engineer with production backend experience at Vodafone Intelligent Solutions and NLP research at San Jose State University. I've built systems handling 5M+ requests/day and fine-tuned transformer models that beat published benchmarks. I'm looking for roles where I can build AI/ML systems, backend platforms, or both.",
 } as const;
 
 export type Experience = {
@@ -49,9 +42,9 @@ export const experience: Experience[] = [
     dates: "Aug 2025 – May 2026",
     location: "San Jose, CA",
     bullets: [
-      "Conducted NLP research on transformer-based legal document analysis, fine-tuning language models for clause classification and long-document summarization on civil rights litigation and SEC contract data.",
-      "Surpassed the published LexGLUE benchmark on 100-class legal clause classification (88.62% vs. 88.20% Micro-F1) by fine-tuning Legal-BERT and BERT across 4 class-imbalance strategies in 8 controlled experiments.",
-      "Designed a hierarchical chunking pipeline fitting 89.1% of 9,280 legal cases within BART's token limit, improving ROUGE-2 by +3.45 points over prior state-of-the-art on Multi-LexSum.",
+      "Beat the published LexGLUE benchmark by fine-tuning Legal-BERT across 4 class-imbalance strategies, achieving 88.62% Micro-F1 on 100-class legal clause classification.",
+      "Improved summarization by +3.45 ROUGE-2 points by designing a hierarchical chunking pipeline that fit 89.1% of 9,280 legal cases within BART's token limit.",
+      "Accelerated long-document ingestion from 6.1% to 89.1% token compliance by restructuring case preprocessing for Multi-LexSum summarization.",
     ],
     tech: ["Python", "BERT", "Legal-BERT", "BART", "LongT5", "HuggingFace", "PyTorch"],
   },
@@ -61,12 +54,12 @@ export const experience: Experience[] = [
     dates: "Jan 2023 – Aug 2025",
     location: "Pune, India",
     bullets: [
-      "Developed Spring Boot microservices and REST APIs for core workflows on AWS ECS with Docker, supporting systems handling 5M+ requests/day at p95 < 300ms latency.",
-      "Optimized MongoDB queries on collections exceeding 50M documents by adding compound indexes and refactoring aggregation pipelines, cutting API response latency by 25% under peak traffic.",
-      "Integrated a third-party payment gateway with idempotent request handling and circuit-breaker patterns via Resilience4j to prevent duplicate charges during downstream failures.",
-      "Contributed to Kafka-based async event streaming, decoupling services and adding dead-letter topic handling to prevent message loss during consumer downtime.",
-      "Helped build GitLab CI/CD pipelines, cutting average deployment time from 45 to 12 minutes and failed deployments by 40% through staged rollouts.",
-      "Secured 40+ REST endpoints with Spring Security and JWT, documenting APIs via Swagger/OpenAPI to reduce integration defects.",
+      "Handled 5M+ requests/day at p95 < 300ms by building Spring Boot microservices and REST APIs deployed on AWS ECS with Docker.",
+      "Cut API response latency by 25% under peak traffic by adding compound indexes and refactoring aggregation pipelines on 50M+ document MongoDB collections.",
+      "Prevented duplicate charges during downstream failures by integrating a third-party payment gateway with idempotent request handling and circuit-breaker patterns via Resilience4j.",
+      "Eliminated message loss during consumer downtime by contributing to Kafka-based async event streaming with dead-letter topic handling.",
+      "Reduced deployment time from 45 to 12 minutes by building GitLab CI/CD pipelines with staged rollouts, cutting failed deployments by 40%.",
+      "Reduced integration defects by securing 40+ REST endpoints with Spring Security and JWT, documenting APIs via Swagger/OpenAPI.",
     ],
     tech: ["Java", "Spring Boot", "AWS ECS", "Docker", "MongoDB", "Kafka", "Redis", "Resilience4j", "JWT", "GitLab CI/CD"],
   },
@@ -76,10 +69,9 @@ export const experience: Experience[] = [
     dates: "Aug 2022 – Dec 2022",
     location: "Bangalore, India",
     bullets: [
-      "Built an end-to-end customer risk classification pipeline on 3M+ transaction records, engineering behavioral and statistical features that improved recall from 62% to 78% while maintaining 75% precision.",
-      "Evaluated Logistic Regression, Random Forest, and XGBoost using stratified cross-validation, selecting the best model based on precision-recall tradeoffs for imbalanced fraud data.",
-      "Built PySpark preprocessing pipelines for cleaning, missing-value handling, and feature encoding over large transaction datasets, cutting model prep time by 45%.",
-      "Indexed transaction data in Elasticsearch and built Kibana dashboards to visualize risk score distributions and model outputs for engineering and business stakeholders.",
+      "Improved customer risk recall from 62% to 78% by engineering behavioral and statistical features across 3M+ transaction records while maintaining 75% precision.",
+      "Cut model prep time by 45% by building PySpark pipelines for missing-value handling, feature encoding, and cleaning over large transaction datasets.",
+      "Selected optimal fraud detection model by benchmarking Logistic Regression, Random Forest, and XGBoost using stratified cross-validation on imbalanced data.",
     ],
     tech: ["Python", "scikit-learn", "Pandas", "NumPy", "PySpark", "XGBoost", "Elasticsearch", "Kibana"],
   },
@@ -89,10 +81,9 @@ export const experience: Experience[] = [
     dates: "Aug 2021 – Sept 2021",
     location: "Bangalore, India",
     bullets: [
-      "Developed and evaluated machine learning models using Python and scikit-learn to solve supervised learning and classification problems across structured datasets.",
-      "Performed data cleaning, feature engineering, and exploratory data analysis on datasets containing over 100,000 records, improving data quality and model readiness.",
-      "Implemented and compared multiple machine learning algorithms, achieving up to 15% improvement in predictive performance over baseline models.",
-      "Presented findings and model insights through visualizations and reports, helping stakeholders understand performance trends and key business drivers.",
+      "Improved predictive performance by 15% over baseline by implementing and comparing multiple ML algorithms on structured classification datasets.",
+      "Increased model readiness by cleaning and engineering features across 100K+ records using Pandas and NumPy.",
+      "Enabled stakeholder decisions by visualizing model performance trends and business drivers through Matplotlib reports.",
     ],
     tech: ["Python", "scikit-learn", "Pandas", "NumPy", "Matplotlib"],
   },
@@ -332,7 +323,7 @@ export const skillGroups: SkillGroup[] = [
 ];
 
 export const navLinks = [
-  { label: "About", href: "#about" },
+  { label: "About", href: "#top" },
   { label: "Experience", href: "#experience" },
   { label: "Education", href: "#education" },
   { label: "Projects", href: "#projects" },

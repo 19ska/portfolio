@@ -5,7 +5,7 @@ import { education } from "@/lib/data";
 
 export function Education() {
   return (
-    <Section id="education" title="Education" index="03">
+    <Section id="education" title="Education" index="02">
       <Reveal stagger className="grid gap-6 md:grid-cols-2">
         {education.map((edu) => (
           <EducationCard key={`${edu.school}-${edu.degree}`} edu={edu} />
