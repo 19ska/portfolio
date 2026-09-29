@@ -2,46 +2,59 @@
 
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
-type RevealProps = {
+const EASE = [0.22, 1, 0.36, 1] as const;
+
+/**
+ * One quiet fade-up on mount. Deliberately restrained: pages are short now,
+ * so motion marks arrival rather than rewarding scrolling.
+ */
+export function Reveal({
+  children,
+  delay = 0,
+  className,
+  id,
+}: {
   children: ReactNode;
+  delay?: number;
   className?: string;
-  /** Render as a stagger parent (children should be <Reveal.Item />). */
-  stagger?: boolean;
-  as?: "div" | "section" | "ul" | "li" | "span";
-};
-
-/** Fade-up on scroll into view. Respects prefers-reduced-motion via CSS. */
-export function Reveal({ children, className, stagger, as = "div" }: RevealProps) {
-  const MotionTag = motion[as];
+  id?: string;
+}) {
   return (
-    <MotionTag
+    <motion.div
+      id={id}
       className={className}
-      variants={stagger ? staggerContainer : fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={viewportOnce}
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, ease: EASE, delay }}
     >
       {children}
-    </MotionTag>
+    </motion.div>
   );
 }
 
-/** A single staggered child; must live inside a <Reveal stagger>. */
-export function RevealItem({
+/** Same, but triggered on scroll into view — for content below the fold. */
+export function RevealOnScroll({
   children,
+  delay = 0,
   className,
-  as = "div",
+  id,
 }: {
   children: ReactNode;
+  delay?: number;
   className?: string;
-  as?: "div" | "li" | "span";
+  id?: string;
 }) {
-  const MotionTag = motion[as];
   return (
-    <MotionTag className={className} variants={fadeUp}>
+    <motion.div
+      id={id}
+      className={className}
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.55, ease: EASE, delay }}
+    >
       {children}
-    </MotionTag>
+    </motion.div>
   );
 }

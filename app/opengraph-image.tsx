@@ -16,16 +16,14 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px",
-          backgroundColor: "#f5f5f0",
+          backgroundColor: "#fbfaf8",
           fontFamily: "sans-serif",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-          <div style={{ fontSize: 26, color: "#6b6b6b", fontFamily: "monospace" }}>
-            {identity.name}
-          </div>
-          <div style={{ fontSize: 26, color: "#6b6b6b" }}>·</div>
-          <div style={{ fontSize: 26, color: "#6b6b6b" }}>{identity.location}</div>
+          <div style={{ fontSize: 26, color: "#63636b", fontFamily: "monospace" }}>{identity.name}</div>
+          <div style={{ fontSize: 26, color: "#63636b" }}>·</div>
+          <div style={{ fontSize: 26, color: "#63636b" }}>{identity.location}</div>
         </div>
 
         <div
@@ -33,17 +31,17 @@ export default function OpengraphImage() {
             display: "flex",
             flexWrap: "wrap",
             fontSize: 68,
-            fontWeight: 800,
-            color: "#0a0a0a",
+            fontWeight: 400,
+            color: "#16161a",
             lineHeight: 1.15,
             letterSpacing: "-0.02em",
             maxWidth: 980,
           }}
         >
-          I build production AI systems from model to infrastructure.
+          {identity.tagline}
         </div>
 
-        <div style={{ display: "flex", fontSize: 26, color: "#6b6b6b" }}>{identity.role}</div>
+        <div style={{ display: "flex", fontSize: 26, color: "#c1440e" }}>{identity.role}</div>
       </div>
     ),
     { ...size },

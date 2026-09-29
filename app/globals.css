@@ -1,31 +1,28 @@
 @import "tailwindcss";
 
 /*
- * Design system — typography-first, monochrome, Rauno Freiberg-inspired.
- * Warm off-white surface, near-black ink. No color anywhere — just
- * black, white, and gray. Rhythm comes from type scale and rules,
- * not cards or shadows.
+ * Design system — refined light editorial.
+ *
+ * Warm paper surface, near-black ink, ONE accent (vermilion) that appears
+ * only in kickers, active state, and hover. Structure comes from hairline
+ * rules and a strict type scale — not cards, borders, or shadows.
  */
 @theme {
-  --color-bg: #f5f5f0;
+  --color-paper: #fbfaf8;
   --color-surface: #ffffff;
-  --color-subtle: #eeeee8;
-  --color-ink: #0a0a0a;
-  --color-muted: #6b6b6b;
-  --color-faint: #8a8a85;
-  --color-line: #e2e2dc;
-  --color-card-border: #d8d5ce;
-  --color-accent: #f0c507;
-  --color-accent-strong: #f0c507;
-  --color-accent-soft: #eeeee8;
-  --color-dusk: #111111;
+  --color-wash: #f3f1ec;
+  --color-ink: #16161a;
+  --color-muted: #63636b;
+  --color-faint: #96969e;
+  --color-line: #e5e2db;
+  --color-hairline: #efece6;
+  --color-accent: #c1440e;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.06);
-
-  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root {
@@ -34,39 +31,75 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 4.5rem;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 body {
-  background-color: var(--color-bg);
+  background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
-  font-feature-settings: "cv11", "ss01";
   font-size: 15px;
-  line-height: 1.6;
-  overflow-x: hidden;
+  line-height: 1.65;
+  letter-spacing: -0.005em;
 }
 
 ::selection {
-  background-color: rgba(240, 197, 7, 0.28);
-  color: #0a0a0a;
+  background-color: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  color: var(--color-ink);
 }
 
-/* Custom square bullet — replaces the default browser disc. */
-.bullet::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.6em;
-  width: 4px;
-  height: 4px;
-  background-color: var(--color-accent);
+/* Visible focus for keyboard users only — never a ring on mouse clicks. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
-.bullet {
+
+@utility display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+
+/* Small caps label — section kickers and meta. */
+@utility kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Link that underlines from the left on hover, instead of a colour flip. */
+@utility link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.3s var(--ease-editorial);
+
+  &:hover {
+    background-size: 100% 1px;
+  }
+}
+
+/* Square accent bullet — replaces the browser disc. */
+@utility bullet {
   position: relative;
-  padding-left: 1rem;
+  padding-left: 1.25rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 5px;
+    height: 1px;
+    background-color: var(--color-accent);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
