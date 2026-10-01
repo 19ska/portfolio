@@ -1,7 +1,12 @@
 import { ImageResponse } from "next/og";
-import { identity } from "@/lib/data";
 
-export const alt = `${identity.name} — ${identity.role}`;
+// Static preview copy, deliberately independent of identity.tagline/role —
+// this card should stay fixed even as the hero copy on the page evolves.
+const PREVIEW_NAME = "Skanda Gonur Nagaraj";
+const PREVIEW_ROLE = "Software Engineer";
+const PREVIEW_SKILLS = "AI/ML • Agentic AI • LLMs • RAG • Distributed Systems";
+
+export const alt = `${PREVIEW_NAME} — ${PREVIEW_ROLE}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -14,34 +19,42 @@ export default function OpengraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
+          justifyContent: "center",
           padding: "80px",
           backgroundColor: "#fbfaf8",
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-          <div style={{ fontSize: 26, color: "#63636b", fontFamily: "monospace" }}>{identity.name}</div>
-          <div style={{ fontSize: 26, color: "#63636b" }}>·</div>
-          <div style={{ fontSize: 26, color: "#63636b" }}>{identity.location}</div>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            fontSize: 72,
+            fontWeight: 600,
+            color: "#16161a",
+            letterSpacing: "-0.02em",
+            maxWidth: 1040,
+          }}
+        >
+          {PREVIEW_NAME}
+        </div>
+
+        <div style={{ display: "flex", marginTop: 16, fontSize: 36, fontWeight: 500, color: "#c1440e" }}>
+          {PREVIEW_ROLE}
         </div>
 
         <div
           style={{
             display: "flex",
             flexWrap: "wrap",
-            fontSize: 68,
-            fontWeight: 400,
-            color: "#16161a",
-            lineHeight: 1.15,
-            letterSpacing: "-0.02em",
-            maxWidth: 980,
+            marginTop: 64,
+            fontSize: 28,
+            color: "#63636b",
+            maxWidth: 1040,
           }}
         >
-          {identity.tagline}
+          {PREVIEW_SKILLS}
         </div>
-
-        <div style={{ display: "flex", fontSize: 26, color: "#c1440e" }}>{identity.role}</div>
       </div>
     ),
     { ...size },
