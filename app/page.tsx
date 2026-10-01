@@ -2,8 +2,9 @@ import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Reveal, RevealOnScroll } from "@/components/ui/reveal";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/brand-icons";
-import { ProjectsSection } from "@/components/projects-section";
-import { about, education, identity, projects, publications, roles, skillGroups } from "@/lib/data";
+import { BoldText } from "@/components/ui/bold-text";
+import { FeaturedProjects } from "@/components/featured-projects";
+import { about, education, identity, publications, roles, skillGroups } from "@/lib/data";
 
 const pill =
   "kicker rounded-full border border-ink px-5 py-2.5 text-ink transition-colors hover:bg-ink hover:text-paper";
@@ -21,9 +22,7 @@ export default function Home() {
               <br />
               <span className="italic text-accent">{identity.lastName}</span>
             </h1>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-muted">{identity.tagline}</p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap gap-3">
               <a href={`mailto:${identity.email}`} className={pill}>
                 Email
               </a>
@@ -38,8 +37,8 @@ export default function Home() {
 
           <Reveal delay={0.1} className="flex flex-col gap-4">
             <div className="flex items-center justify-between gap-4 rounded-2xl border border-line px-6 py-5">
-              <span className="kicker text-faint">Projects built</span>
-              <span className="display text-3xl text-ink">{projects.length}</span>
+              <span className="kicker text-faint">Requests/day in production</span>
+              <span className="display text-3xl text-ink">{identity.requestsPerDay}</span>
             </div>
             <div className="flex items-center justify-between gap-4 rounded-2xl border border-line px-6 py-5">
               <span className="kicker text-faint">Years experience</span>
@@ -59,57 +58,19 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* About — two sentences, right under the fold. */}
+      {/* About — the career story, right under the fold. */}
       <section className="border-b border-hairline">
         <Container size="wide" className="py-16 sm:py-20">
+          <RevealOnScroll className="mb-10">
+            <p className="kicker text-accent">My story</p>
+            <h2 className="display mt-2 text-[clamp(28px,4vw,40px)] text-ink">About</h2>
+          </RevealOnScroll>
+
           <RevealOnScroll className="max-w-2xl space-y-3 text-base leading-relaxed text-ink">
             {about.bio.map((p) => (
               <p key={p}>{p}</p>
             ))}
           </RevealOnScroll>
-        </Container>
-      </section>
-
-      {/* Skills & Stack — category pill, tags flowing beside it. */}
-      <section id="skills" className="border-b border-hairline scroll-mt-16">
-        <Container size="wide" className="py-16 sm:py-20">
-          <RevealOnScroll className="mb-10">
-            <p className="kicker text-accent">What I work with</p>
-            <h2 className="display mt-2 text-[clamp(28px,4vw,40px)] text-ink">Skills &amp; stack</h2>
-          </RevealOnScroll>
-
-          <div className="divide-y divide-hairline border-t border-hairline">
-            {skillGroups.map((group, i) => (
-              <RevealOnScroll
-                key={group.category}
-                delay={Math.min(i * 0.04, 0.2)}
-                className="flex flex-col gap-3 py-5 sm:flex-row sm:items-start sm:gap-6"
-              >
-                <span className="kicker w-fit shrink-0 rounded-full border border-accent/30 px-3 py-1 text-accent sm:w-44">
-                  {group.category}
-                </span>
-                <div className="flex flex-1 flex-wrap gap-2">
-                  {group.skills.map((s) => (
-                    <span key={s} className="rounded-md border border-line px-3 py-1.5 text-xs text-ink">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </RevealOnScroll>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Projects — tabbed filter, full bullets and metrics inline, straight to GitHub. */}
-      <section id="projects" className="border-b border-hairline scroll-mt-16">
-        <Container size="wide" className="py-16 sm:py-20">
-          <RevealOnScroll className="mb-10">
-            <p className="kicker text-accent">What I&apos;ve built</p>
-            <h2 className="display mt-2 text-[clamp(28px,4vw,40px)] text-ink">Projects</h2>
-          </RevealOnScroll>
-
-          <ProjectsSection />
         </Container>
       </section>
 
@@ -137,8 +98,8 @@ export default function Home() {
                   <p className="mt-1 text-sm font-medium text-accent">{role.company}</p>
                   <ul className="mt-4 space-y-2.5">
                     {role.bullets.map((bullet) => (
-                      <li key={bullet} className="bullet text-sm leading-relaxed text-muted">
-                        {bullet}
+                      <li key={bullet} className="bullet text-sm leading-relaxed text-[#4d4d54]">
+                        <BoldText text={bullet} />
                       </li>
                     ))}
                   </ul>
@@ -146,6 +107,18 @@ export default function Home() {
               </RevealOnScroll>
             ))}
           </div>
+        </Container>
+      </section>
+
+      {/* Projects — the 4 strongest, in full, with a link to the rest. */}
+      <section id="projects" className="border-b border-hairline scroll-mt-16">
+        <Container size="wide" className="py-16 sm:py-20">
+          <RevealOnScroll className="mb-10">
+            <p className="kicker text-accent">What I&apos;ve built</p>
+            <h2 className="display mt-2 text-[clamp(28px,4vw,40px)] text-ink">Projects</h2>
+          </RevealOnScroll>
+
+          <FeaturedProjects />
         </Container>
       </section>
 
@@ -182,6 +155,37 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Skills & Stack — category pill, tags flowing beside it. */}
+      <section id="skills" className="border-b border-hairline scroll-mt-16">
+        <Container size="wide" className="py-16 sm:py-20">
+          <RevealOnScroll className="mb-10">
+            <p className="kicker text-accent">What I work with</p>
+            <h2 className="display mt-2 text-[clamp(28px,4vw,40px)] text-ink">Skills &amp; stack</h2>
+          </RevealOnScroll>
+
+          <div className="divide-y divide-hairline border-t border-hairline">
+            {skillGroups.map((group, i) => (
+              <RevealOnScroll
+                key={group.category}
+                delay={Math.min(i * 0.04, 0.2)}
+                className="flex flex-col gap-3 py-5 sm:flex-row sm:items-start sm:gap-6"
+              >
+                <span className="kicker w-fit shrink-0 rounded-full border border-accent/30 px-3 py-1 text-accent sm:w-44">
+                  {group.category}
+                </span>
+                <div className="flex flex-1 flex-wrap gap-2">
+                  {group.skills.map((s) => (
+                    <span key={s} className="rounded-md border border-line px-3 py-1.5 text-xs text-ink">
+                      {s}
+                    </span>
+                  ))}
                 </div>
               </RevealOnScroll>
             ))}

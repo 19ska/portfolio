@@ -26,15 +26,22 @@ const instrumentSerif = Instrument_Serif({
   display: "swap",
 });
 
-const SITE_URL = "https://skandagn.dev";
-const description =
-  "Skanda Gonur Nagaraj — Software Engineer & AI/ML Engineer in San Jose. Building production AI systems from model to infrastructure: RAG, NLP, and backend platforms at scale.";
+// Deployed origin — must match the live Vercel domain exactly. metadataBase
+// resolves every relative URL in `metadata` (canonical, openGraph.images,
+// the opengraph-image route, etc.) against this; pointing it at a domain
+// that isn't actually serving the site is what breaks social-link previews
+// (LinkedIn/Twitter fetch an og:image URL that resolves to nothing).
+const SITE_URL = "https://skandagn.vercel.app";
+const CANONICAL_URL = `${SITE_URL}/`;
+
+const title = "Skanda Gonur Nagaraj | Software Engineer";
+const description = "Software Engineer | AI/ML | Agentic AI | LLMs | RAG | Distributed Systems";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${identity.name} — ${identity.role}`,
-    template: `%s — ${identity.name}`,
+    default: title,
+    template: `%s | ${identity.name}`,
   },
   description,
   keywords: [
@@ -49,18 +56,18 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: identity.name, url: identity.github }],
   creator: identity.name,
-  alternates: { canonical: "/" },
+  alternates: { canonical: CANONICAL_URL },
   openGraph: {
     type: "website",
-    url: SITE_URL,
+    url: CANONICAL_URL,
     siteName: identity.name,
-    title: `${identity.name} — ${identity.role}`,
+    title,
     description,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${identity.name} — ${identity.role}`,
+    title,
     description,
   },
   robots: {

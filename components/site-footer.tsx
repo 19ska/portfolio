@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { identity, navLinks } from "@/lib/data";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/brand-icons";
 import { Container } from "@/components/ui/container";
@@ -14,13 +15,13 @@ export function SiteFooter() {
 
         <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="text-sm text-muted transition-colors hover:text-ink">
+            <Link key={link.href} href={link.href} className="text-sm text-muted transition-colors hover:text-ink">
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a href="#contact" className="text-sm text-muted transition-colors hover:text-ink">
+          <Link href="/#contact" className="text-sm text-muted transition-colors hover:text-ink">
             Contact
-          </a>
+          </Link>
         </nav>
 
         <div className="flex items-center gap-4">

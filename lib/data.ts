@@ -14,17 +14,20 @@ export const identity = {
   github: "https://github.com/19ska",
   githubHandle: "github.com/19ska",
   linkedinHandle: "linkedin.com/in/skandagn",
-  tagline: "I build production AI systems — from model to infrastructure.",
+  tagline: "Backend engineer by trade, ML researcher by training — bringing the two together.",
   availability: "Open to Software Engineer & AI/ML Engineer roles",
   yearsExperience: "2+",
+  requestsPerDay: "5M+",
   openToRoles: ["Software Engineer", "AI/ML Engineer", "Backend Engineer"],
 } as const;
 
 export const about = {
-  /** Two sentences. Kept short — the rest of the page does the talking. */
+  /** The career story, in order: academic ML, production backend, bringing both together. */
   bio: [
-    "I'm a Software Engineer and AI/ML Engineer with production backend experience at Vodafone Intelligent Solutions and NLP research at San Jose State University.",
-    "I've shipped services handling 5M+ requests a day, and fine-tuned transformer models that beat published benchmarks. I'm looking for roles where I build AI/ML systems, backend platforms, or both.",
+    "I started in machine learning the academic way, publishing two papers on detecting Parkinson's disease with ML during my undergrad. The models worked on paper, but I had no idea how they would ever reach a real user.",
+    "Vodafone taught me that part. Over one and a half years I built backend services handling 5M+ requests a day, and learned that latency, failures, and deployments matter as much as accuracy.",
+    "I came to San Jose State to bring those two worlds together. My NLP research there beat a published legal benchmark, and my projects now span the full stack, from fine tuning transformers to simulating GPU architectures to serving models in production.",
+    "I'm looking for roles where I build reliable systems at scale, whether that's backend infrastructure, AI products, or both.",
   ],
 } as const;
 
@@ -54,9 +57,9 @@ export const roles: Role[] = [
     location: "San Jose, CA",
     headline: "Beat the published LexGLUE benchmark at 88.62% Micro-F1",
     bullets: [
-      "Beat the published LexGLUE benchmark by fine-tuning Legal-BERT across 4 class-imbalance strategies, achieving 88.62% Micro-F1 on 100-class legal clause classification.",
-      "Improved summarization by +3.45 ROUGE-2 points by designing a hierarchical chunking pipeline that fit 89.1% of 9,280 legal cases within BART's token limit.",
-      "Accelerated long-document ingestion from 6.1% to 89.1% token compliance by restructuring case preprocessing for Multi-LexSum summarization.",
+      "Beat the published LexGLUE benchmark by fine-tuning Legal-BERT across 4 class-imbalance strategies, achieving **88.62% Micro-F1** on 100-class legal clause classification.",
+      "Improved summarization by **+3.45 ROUGE-2 points** by designing a hierarchical chunking pipeline that fit 89.1% of 9,280 legal cases within BART's token limit.",
+      "Accelerated long-document ingestion from **6.1% to 89.1%** token compliance by restructuring case preprocessing for Multi-LexSum summarization.",
     ],
     tech: ["Python", "BERT", "Legal-BERT", "BART", "LongT5", "HuggingFace", "PyTorch"],
   },
@@ -64,17 +67,17 @@ export const roles: Role[] = [
     slug: "vodafone-software-engineer",
     role: "Software Engineer",
     company: "Vodafone Intelligent Solutions (VOIS)",
-    dates: "Jan 2023 – Aug 2025",
-    years: "2023 — 2025",
+    dates: "Jan 2023 – Aug 2024",
+    years: "2023 — 2024",
     location: "Pune, India",
     headline: "Served 5M+ requests/day at p95 under 300ms",
     bullets: [
-      "Handled 5M+ requests/day at p95 < 300ms by building Spring Boot microservices and REST APIs deployed on AWS ECS with Docker.",
-      "Cut API response latency by 25% under peak traffic by adding compound indexes and refactoring aggregation pipelines on 50M+ document MongoDB collections.",
+      "Handled **5M+** requests/day at **p95 < 300ms** by building Spring Boot microservices and REST APIs deployed on AWS ECS with Docker.",
+      "Cut API response latency by **25%** under peak traffic by adding compound indexes and refactoring aggregation pipelines on 50M+ document MongoDB collections.",
       "Prevented duplicate charges during downstream failures by integrating a third-party payment gateway with idempotent request handling and circuit-breaker patterns via Resilience4j.",
       "Eliminated message loss during consumer downtime by contributing to Kafka-based async event streaming with dead-letter topic handling.",
-      "Reduced deployment time from 45 to 12 minutes by building GitLab CI/CD pipelines with staged rollouts, cutting failed deployments by 40%.",
-      "Reduced integration defects by securing 40+ REST endpoints with Spring Security and JWT, documenting APIs via Swagger/OpenAPI.",
+      "Reduced deployment time from **45 to 12 minutes** by building GitLab CI/CD pipelines with staged rollouts, cutting failed deployments by **40%**.",
+      "Reduced integration defects by securing **40+ REST endpoints** with Spring Security and JWT, documenting APIs via Swagger/OpenAPI.",
     ],
     tech: ["Java", "Spring Boot", "AWS ECS", "Docker", "MongoDB", "Kafka", "Redis", "Resilience4j", "JWT", "GitLab CI/CD"],
   },
@@ -87,8 +90,8 @@ export const roles: Role[] = [
     location: "Bangalore, India",
     headline: "Lifted customer risk recall from 62% to 78% at 75% precision",
     bullets: [
-      "Improved customer risk recall from 62% to 78% by engineering behavioral and statistical features across 3M+ transaction records while maintaining 75% precision.",
-      "Cut model prep time by 45% by building PySpark pipelines for missing-value handling, feature encoding, and cleaning over large transaction datasets.",
+      "Improved customer risk recall from **62% to 78%** by engineering behavioral and statistical features across 3M+ transaction records while maintaining 75% precision.",
+      "Cut model prep time by **45%** by building PySpark pipelines for missing-value handling, feature encoding, and cleaning over large transaction datasets.",
       "Selected optimal fraud detection model by benchmarking Logistic Regression, Random Forest, and XGBoost using stratified cross-validation on imbalanced data.",
     ],
     tech: ["Python", "scikit-learn", "Pandas", "NumPy", "PySpark", "XGBoost", "Elasticsearch", "Kibana"],
@@ -102,8 +105,8 @@ export const roles: Role[] = [
     location: "Bangalore, India",
     headline: "Improved predictive performance 15% over baseline",
     bullets: [
-      "Improved predictive performance by 15% over baseline by implementing and comparing multiple ML algorithms on structured classification datasets.",
-      "Increased model readiness by cleaning and engineering features across 100K+ records using Pandas and NumPy.",
+      "Improved predictive performance by **15%** over baseline by implementing and comparing multiple ML algorithms on structured classification datasets.",
+      "Increased model readiness by cleaning and engineering features across **100K+ records** using Pandas and NumPy.",
       "Enabled stakeholder decisions by visualizing model performance trends and business drivers through Matplotlib reports.",
     ],
     tech: ["Python", "scikit-learn", "Pandas", "NumPy", "Matplotlib"],
@@ -128,6 +131,8 @@ export type Project = {
   github: string;
   /** Optional prominent badge (e.g. an award/finalist). */
   badge?: string;
+  /** Shown in the homepage's 4-up featured grid. */
+  featured?: boolean;
 };
 
 // One flat list. Category is a filter, not a wall to scroll past.
@@ -139,6 +144,7 @@ export const projects: Project[] = [
     summary: "Autonomous multi-agent GPU design-space exploration on real GPGPU-Sim runs.",
     metric: "15 SM cores simulated",
     badge: "Hackathon Finalist · UC Berkeley & Stanford",
+    featured: true,
     bullets: [
       "Built an autonomous multi-agent system for GPU microarchitecture design-space exploration, orchestrating agents to simulate kernel workloads via GPGPU-Sim across 15 SM cores",
       "Parsed simulator output into structured performance profiles (L1D miss rates, DRAM bandwidth, row-buffer locality, warp stall cycles) to surface memory- and interconnect-level bottlenecks",
@@ -153,6 +159,7 @@ export const projects: Project[] = [
     category: "AI / ML",
     summary: "NLP pipeline classifying 100 legal clause types and summarizing 75K-token cases.",
     metric: "88.62% Micro-F1",
+    featured: true,
     bullets: [
       "Built an end-to-end legal NLP pipeline for clause classification and case summarization using PyTorch and Hugging Face, integrating preprocessing, tokenization, fine-tuning, inference, and evaluation across LEDGAR and Multi-LexSum datasets",
       "Implemented BERT-base and Legal-BERT classifiers for 100-class contract clause prediction, applying weighted loss, focal loss, and oversampling to handle class imbalance; achieved 88.62% Micro-F1 and 83.11% Macro-F1",
@@ -167,6 +174,7 @@ export const projects: Project[] = [
     category: "AI / ML",
     summary: "GenAI computer-use agent that discovers and replays browser workflows.",
     metric: "341 automated tests",
+    featured: true,
     bullets: [
       "Built a GenAI computer-use agent that discovers workflows on live web UIs via an observe → decide → act loop and Playwright; completed the production workflow in a 6-step live discovery run.",
       "Compiled successful runs into typed, parameterized Pydantic artifacts, enabling deterministic zero-LLM replay with new runtime inputs, robust locators, output extraction, and checkpoint verification.",
@@ -181,6 +189,7 @@ export const projects: Project[] = [
     category: "Systems",
     summary: "RAG platform of FastAPI microservices with parallel embedding and query routing.",
     metric: "300+ QPS · p95 < 650ms",
+    featured: true,
     bullets: [
       "Designed a distributed RAG platform using FastAPI microservices with parallel embedding generation and concurrent query execution for large-scale knowledge retrieval",
       "Built a retrieval backend sustaining 300+ QPS (peak 900) with p95 latency under 650ms, using Redis for vector storage and optimized query routing",
@@ -419,9 +428,9 @@ export const publications: Publication[] = [
 /* ---------------------------------------------------------------- nav ----- */
 
 export const navLinks = [
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Education", href: "#education" },
-  { label: "Publications", href: "#publications" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Education", href: "/#education" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Publications", href: "/#publications" },
 ] as const;

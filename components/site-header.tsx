@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { identity, navLinks } from "@/lib/data";
 import { Container } from "@/components/ui/container";
@@ -23,27 +24,31 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-hairline bg-paper/90 backdrop-blur-sm">
       <Container size="wide">
         <div className="flex h-16 items-center justify-between">
-          <a
-            href="#top"
+          <Link
+            href="/#top"
             className="font-mono text-sm font-medium tracking-tight text-ink"
             aria-label={`${identity.name} — back to top`}
           >
             {identity.monogram}
             <span className="text-accent">.</span>
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="kicker text-faint transition-colors hover:text-ink">
+              <Link
+                key={link.href}
+                href={link.href}
+                className="kicker text-muted transition-colors hover:text-ink"
+              >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="kicker rounded-full border border-ink px-4 py-1.5 text-ink transition-colors hover:bg-ink hover:text-paper"
             >
               Contact
-            </a>
+            </Link>
           </nav>
 
           <button
@@ -62,18 +67,18 @@ export function SiteHeader() {
         <div className="border-t border-hairline bg-paper md:hidden">
           <Container size="wide" className="flex flex-col py-2">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className="border-b border-hairline py-4 text-base text-muted last:border-b-0"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a href="#contact" onClick={() => setOpen(false)} className="py-4 text-base text-accent">
+            <Link href="/#contact" onClick={() => setOpen(false)} className="py-4 text-base text-accent">
               Contact
-            </a>
+            </Link>
           </Container>
         </div>
       ) : null}
